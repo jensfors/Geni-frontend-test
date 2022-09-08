@@ -32,7 +32,7 @@ body {
 	width: 66%;
 	justify-content: center;
 	align-items: center;
-    padding-left: 5%;
+	padding-left: 5%;
 }
 
 form {
@@ -40,42 +40,40 @@ form {
 	flex-direction: column;
 	flex-grow: 1;
 	max-width: 400px;
-}
-
-form input {
-	width: 100%;
-	border-style: solid;
-	border-radius: 0.5rem;
-	border-color: $violet-light;
-	border-width: 1px;
-	margin-top: 0.25rem;
-	padding-right: 0.75rem;
-	padding-bottom: 0.5rem;
-	padding-left: 0.75rem;
-	padding-top: 0.5rem;
-}
-
-form input::placeholder {
-	color: $violet-dark; // light grey seems *NOT* accessible
+	input {
+		width: 100%;
+		border-style: solid;
+		border-radius: 0.5rem;
+		border-color: $violet-light;
+		border-width: 1px;
+		margin-top: 0.25rem;
+		padding-right: 0.75rem;
+		padding-bottom: 0.5rem;
+		padding-left: 0.75rem;
+		padding-top: 0.5rem;
+		&::placeholder {
+			color: $violet-dark;
+		}
+	}
 }
 
 button {
 	border-radius: 0.5rem;
-    margin-top: 34px;
+	margin-top: 34px;
 	width: 100%;
 	color: $white;
 	background-color: $violet-very-dark;
-    height: 48px;
+	height: 48px;
 }
 
 label {
 	display: block;
 	text-transform: uppercase;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: $violet-very-dark;
-    letter-spacing: 0.5px;
-    padding-top: 20px;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: $violet-very-dark;
+	letter-spacing: 0.5px;
+	padding-top: 20px;
 }
 
 .expire-cvc {
@@ -85,12 +83,14 @@ label {
 	flex-wrap: nowrap;
 }
 
-.expiration-date input {
-	max-width: 46%;
+.expiration-date {
+	input {
+		max-width: 46%;
+	}
 }
 
 #expiration-month {
-    margin-right: 6px;
+	margin-right: 6px;
 }
 
 .cvc {
@@ -111,9 +111,11 @@ label {
 	top: 20%;
 }
 
-.bc .fc {
-	width: 100%;
-	height: auto;
+.bc {
+	.fc {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .front-card {
@@ -133,7 +135,9 @@ label {
 	left: 25px;
 }
 
-@media only screen and (max-width: 375px) {
+
+// Mobile Devices
+@media only screen and (max-width: $breakpoint-mobile) {
 	.wrapper {
 		flex-direction: column;
 	}
@@ -141,9 +145,9 @@ label {
 	.form-wrapper {
 		height: 66%;
 		width: 100%;
-        padding-left: 6%;
-        padding-right: 6%;
-        padding-top: 20px;
+		padding-left: 6%;
+		padding-right: 6%;
+		padding-top: 20px;
 	}
 
 	.gradient-box {
@@ -153,37 +157,39 @@ label {
 		background-size: cover;
 	}
 
-    .cards {
-	display: block;
-	position: absolute;
-    right: unset;
-    left: 5%;
-    right: 5%;
-	top: 25%;
-}
+	.cards {
+		display: block;
+		position: absolute;
+		right: unset;
+		left: 5%;
+		right: 5%;
+		top: 25%;
+	}
 
-.bc .fc {
-	width: 100%;
-	height: auto;
-}
+	.bc {
+		.fc {
+			width: 100%;
+			height: auto;
+		}
+	}
 
-.front-card {
-	position: relative;
-    width: 80%;
-    top: 80px;
-    z-index: 1;
-}
+	.front-card {
+		position: relative;
+		width: 80%;
+		top: 80px;
+		z-index: 1;
+	}
 
-.back-card {
-	position: absolute;
-    top: -4px;
-    width: 80%;
-}
+	.back-card {
+		position: absolute;
+		top: -4px;
+		width: 80%;
+	}
 
-.card-logo {
-	position: absolute;
-	top: 15px;
-	left: 15px;
-    height: 25px;
-}
+	.card-logo {
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		height: 25px;
+	}
 }

@@ -93,7 +93,6 @@ form {
   flex-grow: 1;
   max-width: 400px;
 }
-
 form input {
   width: 100%;
   border-style: solid;
@@ -106,15 +105,12 @@ form input {
   padding-left: 0.75rem;
   padding-top: 0.5rem;
 }
-
 form input::-moz-placeholder {
   color: hsl(279deg, 6%, 55%);
 }
-
 form input:-ms-input-placeholder {
   color: hsl(279deg, 6%, 55%);
 }
-
 form input::placeholder {
   color: hsl(279deg, 6%, 55%);
 }
