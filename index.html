@@ -9,9 +9,6 @@
 	<body>
 		<div class="wrapper">
 			<div class="gradient-box">
-                <!-- <h1>hello</h1> -->
-            <!-- <p id="demo">A Paragraph</p> -->
-            <!-- <button type="button" onclick="myFunction()">Try it</button> -->
             <div class="cards">
                 <div class="front-card">
                     <img class="bc" src="/images/bg-card-front.png" alt="">
@@ -27,7 +24,6 @@
                     <form name="payment-form">
                         <label
                             for="name"
-                            class="block text-sm font-medium text-gray-700"
                             >Cardholder name</label
                         >
                         <input
@@ -38,11 +34,9 @@
                             required
                             placeholder="e.g Jane Appleseed"
                             onkeypress="return onlyCharKey(event)"
-                            value="Jens"
                         />
                         <label
                             for="cardNumber"
-                            class="block text-sm font-medium text-gray-700"
                             >Card number</label
                         >
                         <input
@@ -56,13 +50,11 @@
                             required
                             placeholder="e.g. 1234 5678 9123 0000"
                             onkeypress="return onlyNumberKey(event)"
-                            value="123456"
                         />
                         <div class="expire-cvc">
                             <div class="expiration-date">
                                 <label
                                     for="expiration-date"
-                                    class="block text-sm font-medium text-gray-700"
                                     >Exp. date (MM/YY)</label
                                 >
                                     <input
@@ -74,7 +66,6 @@
                                         maxlength="2"
                                         placeholder="MM"
                                         onkeypress="return onlyNumberKey(event)"
-                                        value="12"
                                     />
                                      <input
                                     type="tel"
@@ -85,13 +76,11 @@
                                     maxlength="2"
                                     placeholder="YY"
                                     onkeypress="return onlyNumberKey(event)"
-                                    value="12"
                                 />
                             </div>
                             <div class="cvc">
                                 <label
                                     for="cvc"
-                                    class="block text-sm font-medium text-gray-700"
                                     >CVC</label
                                 >
                                 <input
@@ -103,7 +92,6 @@
                                     maxlength="3"
                                     placeholder="e.g. 123"
                                     onkeypress="return onlyNumberKey(event)"
-                                    value="123"
                                 />
                             </div>
                         </div>
