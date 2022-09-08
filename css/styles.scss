@@ -1,0 +1,201 @@
+@import 'globals.scss';
+
+body {
+	background-color: hsl(0, 0%, 100%);
+}
+
+.wrapper {
+	// background-color: hsl(0, 0%, 100%);
+	display: flex;
+	height: 100%;
+	// width: 100%;
+	flex-grow: 1;
+	// flex-direction: row;
+	// max-width: 100%;
+}
+
+.gradient-box {
+	// max-width: 33%;
+	position: relative;
+	flex-grow: 1;
+	// margin-right: auto;
+	height: 100%;
+	background-image: url('../images/bg-main-desktop.png');
+	background-size: cover;
+}
+
+.form-wrapper {
+	// background-color: grey;
+	display: flex;
+	width: 66%;
+	// height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+form {
+	// background-color: bisque;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	max-width: 400px;
+}
+
+form input {
+	width: 100%;
+	border-style: solid;
+	border-radius: 0.5rem;
+	border-color: hsl(270, 3%, 87%);
+	// border-color: rgb(209, 213, 219);
+	border-width: 1px;
+	margin-top: 0.25rem;
+	padding-right: 0.75rem;
+	padding-bottom: 0.5rem;
+	padding-left: 0.75rem;
+	padding-top: 0.5rem;
+}
+
+form input::placeholder {
+	// color: hsl(270, 3%, 87%);
+	color: hsl(279, 6%, 55%); // light grey seems *NOT* accessible
+}
+
+button {
+	border-radius: 0.5rem;
+    margin-top: 34px;
+	width: 100%;
+	color: white;
+	background-color: hsl(278, 68%, 11%);
+    height: 48px;
+}
+
+label {
+	display: block;
+	text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-top: 20px;
+}
+
+.expire-cvc {
+	display: flex;
+	justify-content: space-between;
+	// border: dashed red;
+	gap: 14px;
+	flex-wrap: nowrap;
+	// flex-grow: 1;
+}
+
+.expiration-date input {
+	max-width: 46%;
+}
+
+#expiration-month {
+    margin-right: 6px;
+}
+
+.cvc {
+	min-width: 50%;
+}
+
+// label,input{
+//   display:flex;
+//   flex-direction:column;
+// }
+
+#confirm-template {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cards {
+	display: block;
+	position: absolute;
+	right: -20%;
+	top: 20%;
+}
+
+.bc .fc {
+	width: 100%;
+	height: auto;
+}
+
+.front-card {
+	// position: relative;
+	// right: -200px;
+}
+
+.back-card {
+	position: relative;
+	top: 40px;
+	left: 20%;
+}
+
+.card-logo {
+	position: absolute;
+	top: 25px;
+	left: 25px;
+}
+
+@media only screen and (max-width: 375px) {
+	.wrapper {
+		flex-direction: column;
+	}
+	.form-wrapper {
+		// background-color: grey;
+		height: 66%;
+		width: 100%;
+        padding-left: 6%;
+        padding-right: 6%;
+        padding-top: 80px;
+	}
+
+	.gradient-box {
+		// max-width: 33%;
+		flex-grow: 1;
+		// margin-right: auto;
+		height: unset;
+		background-image: url('../images/bg-main-desktop.png');
+		background-size: cover;
+	}
+
+    .cards {
+	display: block;
+	position: absolute;
+	// right: -20%;
+    right: unset;
+    left: 5%;
+    right: 5%;
+	top: 25%;
+}
+
+.bc .fc {
+	width: 100%;
+	height: auto;
+}
+
+.front-card {
+	position: relative;
+    width: 80%;
+    top: 80px;
+    z-index: 1;
+	// right: -200px;
+}
+
+.back-card {
+	position: absolute;
+    top: -4px;
+    // right: 100px;
+    width: 80%;
+}
+
+.card-logo {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+    height: 25px;
+}
+}

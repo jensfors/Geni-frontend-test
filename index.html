@@ -1,11 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://fonts.google.com/specimen/Space+Grotesk">
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="gradient-box">
+                <!-- <h1>hello</h1> -->
+            <!-- <p id="demo">A Paragraph</p> -->
+            <!-- <button type="button" onclick="myFunction()">Try it</button> -->
+            <div class="cards">
+                <div class="front-card">
+                    <img class="bc" src="/images/bg-card-front.png" alt="">
+                    <img class="card-logo" src="/images/card-logo.svg">
+                </div>
+                <div class="back-card">
+                    <img class="fc" src="/images/bg-card-back.png" alt="">
+                </div>
+            </div>
+            </div>
+			<div class="form-wrapper" id="wrapper">
+                <!-- <template id="form-template"> -->
+                    <form name="payment-form">
+                        <label
+                            for="name"
+                            class="block text-sm font-medium text-gray-700"
+                            >Cardholder name</label
+                        >
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="cc-name"
+                            required
+                            placeholder="e.g Jane Appleseed"
+                            onkeypress="return onlyCharKey(event)"
+                            value="Jens"
+                        />
+                        <label
+                            for="cardNumber"
+                            class="block text-sm font-medium text-gray-700"
+                            >Card number</label
+                        >
+                        <input
+                            type="tel"
+                            inputmode="numeric"
+                            pattern="\d*"
+                            id="cardNumber"
+                            name="cardNumber"
+                            autocomplete="cc-number"
+                            maxlength="19"
+                            required
+                            placeholder="e.g. 1234 5678 9123 0000"
+                            onkeypress="return onlyNumberKey(event)"
+                            value="123456"
+                        />
+                        <div class="expire-cvc">
+                            <div class="expiration-date">
+                                <label
+                                    for="expiration-date"
+                                    class="block text-sm font-medium text-gray-700"
+                                    >Exp. date (MM/YY)</label
+                                >
+                                    <input
+                                        type="tel"
+                                        name="expiration-month"
+                                        id="expiration-month"
+                                        autocomplete="cc-exp"
+                                        required
+                                        maxlength="2"
+                                        placeholder="MM"
+                                        onkeypress="return onlyNumberKey(event)"
+                                        value="12"
+                                    />
+                                     <input
+                                    type="tel"
+                                    name="expiration-year"
+                                    id="expiration-year"
+                                    autocomplete="cc-exp"
+                                    required
+                                    maxlength="2"
+                                    placeholder="YY"
+                                    onkeypress="return onlyNumberKey(event)"
+                                    value="12"
+                                />
+                            </div>
+                            <div class="cvc">
+                                <label
+                                    for="cvc"
+                                    class="block text-sm font-medium text-gray-700"
+                                    >CVC</label
+                                >
+                                <input
+                                    type="tel"
+                                    name="cvc"
+                                    id="cvc"
+                                    autocomplete="csc"
+                                    required
+                                    maxlength="3"
+                                    placeholder="e.g. 123"
+                                    onkeypress="return onlyNumberKey(event)"
+                                    value="123"
+                                />
+                            </div>
+                        </div>
+                        <button type="submit" name="confirm">Confirm</button>
+                    </form>
+                <!-- </template> -->
 
-<h1>Is this getting deployed????</h1>
-</body>
+                <!-- Complete state -->
+                <div id="confirm-template">
+                    <img src="/images/icon-complete.svg" width="80" height="80">
+                    <h2>THANK YOU!</h2>
+                    <p>We've added your card details</p>
+                    <button onclick="showForm()">Continue</button>
+                </>
+				</div>
+			</div>
+		</div>
+        <script src="js/script.js"></script>
+	</body>
 </html>

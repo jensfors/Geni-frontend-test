@@ -1,0 +1,235 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  font-size: 18px;
+  font-family: "Space Grotesk";
+  font-weight: 500;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+body {
+  background-color: hsl(0deg, 0%, 100%);
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.gradient-box {
+  position: relative;
+  flex-grow: 1;
+  height: 100%;
+  background-image: url("../images/bg-main-desktop.png");
+  background-size: cover;
+}
+
+.form-wrapper {
+  display: flex;
+  width: 66%;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+form input {
+  width: 100%;
+  border-style: solid;
+  border-radius: 0.5rem;
+  border-color: hsl(270deg, 3%, 87%);
+  border-width: 1px;
+  margin-top: 0.25rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+form input::-moz-placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+
+form input:-ms-input-placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+
+form input::placeholder {
+  color: hsl(279deg, 6%, 55%);
+}
+
+button {
+  border-radius: 0.5rem;
+  margin-top: 34px;
+  width: 100%;
+  color: white;
+  background-color: hsl(278deg, 68%, 11%);
+  height: 48px;
+}
+
+label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding-top: 20px;
+}
+
+.expire-cvc {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: nowrap;
+}
+
+.expiration-date input {
+  max-width: 46%;
+}
+
+#expiration-month {
+  margin-right: 6px;
+}
+
+.cvc {
+  min-width: 50%;
+}
+
+#confirm-template {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards {
+  display: block;
+  position: absolute;
+  right: -20%;
+  top: 20%;
+}
+
+.bc .fc {
+  width: 100%;
+  height: auto;
+}
+
+.back-card {
+  position: relative;
+  top: 40px;
+  left: 20%;
+}
+
+.card-logo {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+@media only screen and (max-width: 375px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .form-wrapper {
+    height: 66%;
+    width: 100%;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 80px;
+  }
+  .gradient-box {
+    flex-grow: 1;
+    height: unset;
+    background-image: url("../images/bg-main-desktop.png");
+    background-size: cover;
+  }
+  .cards {
+    display: block;
+    position: absolute;
+    right: unset;
+    left: 5%;
+    right: 5%;
+    top: 25%;
+  }
+  .bc .fc {
+    width: 100%;
+    height: auto;
+  }
+  .front-card {
+    position: relative;
+    width: 80%;
+    top: 80px;
+    z-index: 1;
+  }
+  .back-card {
+    position: absolute;
+    top: -4px;
+    width: 80%;
+  }
+  .card-logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 25px;
+  }
+}/*# sourceMappingURL=styles.css.map */
