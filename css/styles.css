@@ -123,7 +123,7 @@ button {
   border-radius: 0.5rem;
   margin-top: 34px;
   width: 100%;
-  color: white;
+  color: hsl(0deg, 0%, 100%);
   background-color: hsl(278deg, 68%, 11%);
   height: 48px;
 }

@@ -5,7 +5,6 @@ function myFunction(e) {
 const paymentForm = document.querySelector('[name="payment-form"]');
 console.log(paymentForm);
 
-console.log('hello there');
 paymentForm.addEventListener('submit', function (e) {
 	// Could add extra validation here, but not sure which value it adds
 	// since final validation should happen on the server
@@ -13,33 +12,38 @@ paymentForm.addEventListener('submit', function (e) {
 	console.log('submitted the form');
 	console.log(e);
 	e.preventDefault();
-
+    // validation steps
+    const name = e.currentTarget.name.value;
 	const cardNumber = e.currentTarget.cardNumber.value;
-	console.log(cardNumber);
-	// check if it long enough or something
+	const expirationMonth = e.currentTarget.expirationMonth.value;
+	const expirationYear = e.currentTarget.expirationYear.value;
+	const cvc = e.currentTarget.cvc.value;
+
+	console.log('name', name);
+	console.log('cardnumber', cardNumber);
+	console.log('expiration month', expirationMonth);
+	console.log('expiration year', expirationYear);
+	console.log('expiration cvc', cvc);
 
 	showContent();
 });
+
+function validateName (name) {
+    if (!name) {
+        console.log('Sorry name cannot be empty');
+    } else if (!name){
+
+    }
+}
+
+
+
 var wrapper = document.getElementById('wrapper');
 
 function showContent() {
-	console.log('do we get here???');
-	// var temp = document.getElementsByTagName('template')[0];
-	// var clon = temp.content.cloneNode(true);
-	// let form = document.getElementById('form-template');
 	let confirm = document.getElementById('confirm-template');
-	// var wrapper = document.getElementById('wrapper');
-	// let submit = document.querySelector('[name="confirm"]');
-	console.log(confirm);
-	// console.log(submit);
-	// console.log(form);
 	paymentForm.remove();
 	confirm.style.display = 'flex';
-
-	// wrapper?.appendChild(clon);
-	// submit?.parentNode?.insertBefore(clon, submit);
-	// document.submit.appendChild(clon);
-	// document.body.appendChild(clon);
 }
 
 function showForm() {

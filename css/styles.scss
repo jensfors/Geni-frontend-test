@@ -1,41 +1,41 @@
 @import 'globals.scss';
 
+$white: hsl(0, 0%, 100%);
+$red-error: hsl(0, 100%, 66%);
+$violet-light: hsl(270, 3%, 87%);
+$violet-dark: hsl(279, 6%, 55%);
+$violet-very-dark: hsl(278, 68%, 11%);
+
+$breakpoint-mobile: 375px;
+$breakpoint-desktop: 1440px;
+
 body {
 	background-color: hsl(0, 0%, 100%);
 }
 
 .wrapper {
-	// background-color: hsl(0, 0%, 100%);
 	display: flex;
 	height: 100%;
-	// width: 100%;
 	flex-grow: 1;
-	// flex-direction: row;
-	// max-width: 100%;
 }
 
 .gradient-box {
-	// max-width: 33%;
 	position: relative;
 	flex-grow: 1;
-	// margin-right: auto;
 	height: 100%;
 	background-image: url('../images/bg-main-desktop.png');
 	background-size: cover;
 }
 
 .form-wrapper {
-	// background-color: grey;
 	display: flex;
 	width: 66%;
-	// height: 100%;
 	justify-content: center;
 	align-items: center;
     padding-left: 5%;
 }
 
 form {
-	// background-color: bisque;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -46,8 +46,7 @@ form input {
 	width: 100%;
 	border-style: solid;
 	border-radius: 0.5rem;
-	border-color: hsl(270, 3%, 87%);
-	// border-color: rgb(209, 213, 219);
+	border-color: $violet-light;
 	border-width: 1px;
 	margin-top: 0.25rem;
 	padding-right: 0.75rem;
@@ -57,16 +56,15 @@ form input {
 }
 
 form input::placeholder {
-	// color: hsl(270, 3%, 87%);
-	color: hsl(279, 6%, 55%); // light grey seems *NOT* accessible
+	color: $violet-dark; // light grey seems *NOT* accessible
 }
 
 button {
 	border-radius: 0.5rem;
     margin-top: 34px;
 	width: 100%;
-	color: white;
-	background-color: hsl(278, 68%, 11%);
+	color: $white;
+	background-color: $violet-very-dark;
     height: 48px;
 }
 
@@ -75,7 +73,7 @@ label {
 	text-transform: uppercase;
     font-size: 0.9rem;
     font-weight: 600;
-    color: hsl(278, 68%, 11%);
+    color: $violet-very-dark;
     letter-spacing: 0.5px;
     padding-top: 20px;
 }
@@ -83,10 +81,8 @@ label {
 .expire-cvc {
 	display: flex;
 	justify-content: space-between;
-	// border: dashed red;
 	gap: 14px;
 	flex-wrap: nowrap;
-	// flex-grow: 1;
 }
 
 .expiration-date input {
@@ -100,11 +96,6 @@ label {
 .cvc {
 	min-width: 50%;
 }
-
-// label,input{
-//   display:flex;
-//   flex-direction:column;
-// }
 
 #confirm-template {
 	display: none;
@@ -146,8 +137,8 @@ label {
 	.wrapper {
 		flex-direction: column;
 	}
+
 	.form-wrapper {
-		// background-color: grey;
 		height: 66%;
 		width: 100%;
         padding-left: 6%;
@@ -156,9 +147,7 @@ label {
 	}
 
 	.gradient-box {
-		// max-width: 33%;
 		flex-grow: 1;
-		// margin-right: auto;
 		height: unset;
 		background-image: url('../images/bg-main-desktop.png');
 		background-size: cover;
@@ -183,13 +172,11 @@ label {
     width: 80%;
     top: 80px;
     z-index: 1;
-	// right: -200px;
 }
 
 .back-card {
 	position: absolute;
     top: -4px;
-    // right: 100px;
     width: 80%;
 }
 
