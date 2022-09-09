@@ -25,40 +25,60 @@ paymentForm.addEventListener('submit', function (e) {
 	console.log('expiration year', expirationYear);
 	console.log('expiration cvc', cvc);
 
+	validateExpirationYear(expirationYear);
 	validateExpirationMonth(expirationMonth);
 	validateCVC(cvc);
-	showContent();
+	// showContent();
 });
 
 function validateExpirationMonth(expirationMonth) {
-	console.log('expiration month: ', expirationMonth);
-	console.log('expiration month: ', expirationMonth.length);
+	let input = document.getElementById('expirationMonth');
+	let error = document.getElementById('expError');
 
 	if (expirationMonth.length < 2) {
-		console.log('expirationMonth error: ', expirationMonth);
-		errMessage = 'Need at least 2 characters';
-		// TODO: Set error text on paragrap with error message
+		input?.classList.add('input-error');
+		error.innerHTML = 'Has to be 2 numbers';
+
 		return;
 	} else if (expirationMonth < 1 || expirationMonth > 12) {
-		console.log('expirationMonth error 2: ', expirationMonth);
-		errMessage = 'Value has to be between 1 and 12';
-		// TODO: Set error text on paragrap with error message
+		input?.classList.add('input-error');
+		error.innerHTML = 'MM has to be between 1 and 12';
+
 		return;
 	}
 
-	console.log('wuuuhu expiration month passed');
+	input.classList.remove('input-error');
+	error.innerHTML = '';
+}
+
+function validateExpirationYear(expirationYear) {
+	let input = document.getElementById('expirationYear');
+	let error = document.getElementById('expError');
+
+	if (expirationYear.length < 2) {
+		input?.classList.add('input-error');
+		error.innerHTML = 'Has to be 2 numbers';
+
+		return;
+	}
+
+	input.classList.remove('input-error');
+	error.innerHTML = '';
 }
 
 function validateCVC(cvc) {
-	console.log('cvc: ', cvc.length);
-	let errMessage = 'No Error';
+	let input = document.getElementById('cvc');
+	let error = document.getElementById('cvcError');
+
 	if (cvc.length < 3) {
-		console.log('cvc error: ', cvc);
-		errMessage = 'Need at least 3 characters';
-		// TODO: Set error text on paragrap with error message
+		input?.classList.add('input-error');
+		error.innerHTML = 'Has to be 3 numbers';
+
 		return;
 	}
-	console.log('wuuuhu cvc passed');
+
+	input.classList.remove('input-error');
+	error.innerHTML = '';
 }
 
 function validateName(name) {
@@ -89,6 +109,10 @@ function onlyNumberKey(e) {
 	return true;
 }
 
+// This could be made more resilient with checking ASCII character
+// to eliminate the possibility that the user enters characters
+// like ,./(){}[]!@#$%^&*_
+// !! But be aware a name could be: Jens-Nicolaj Andersen
 function onlyCharKey(e) {
 	if (!isNaN(e.key)) return false;
 	return true;

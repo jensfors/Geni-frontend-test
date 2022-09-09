@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://fonts.google.com/specimen/Space+Grotesk">
 		<link rel="stylesheet" href="css/styles.css" />
 
-        
+
         <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -74,26 +74,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     for="expiration-date"
                                     >Exp. date (MM/YY)</label
                                 >
-                                    <input
-                                        type="tel"
-                                        name="expirationMonth"
-                                        id="expirationMonth"
-                                        autocomplete="cc-exp"
-                                        required
-                                        maxlength="2"
-                                        placeholder="MM"
-                                        onkeypress="return onlyNumberKey(event)"
-                                    />
-                                     <input
+                                <input
                                     type="tel"
-                                    name="expirationYear"
-                                    id="expirationYear"
+                                    name="expirationMonth"
+                                    id="expirationMonth"
                                     autocomplete="cc-exp"
                                     required
                                     maxlength="2"
-                                    placeholder="YY"
+                                    placeholder="MM"
                                     onkeypress="return onlyNumberKey(event)"
                                 />
+                                <input
+                                type="tel"
+                                name="expirationYear"
+                                id="expirationYear"
+                                autocomplete="cc-exp"
+                                required
+                                maxlength="2"
+                                placeholder="YY"
+                                onkeypress="return onlyNumberKey(event)"
+                                />
+                                <div id="expError" class="error"></div>
                             </div>
                             <div class="cvc">
                                 <label
@@ -110,6 +111,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     placeholder="e.g. 123"
                                     onkeypress="return onlyNumberKey(event)"
                                 />
+                                <div id="cvcError" class="error"></div>
                             </div>
                         </div>
                         <button type="submit" name="confirm">Confirm</button>
@@ -118,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <!-- Complete state -->
                 <div id="confirm-template">
                     <img src="/images/icon-complete.svg" width="80" height="80">
-                    <h2>THANK YOU!</h2>
+                    <h3>THANK YOU!</h3>
                     <p>We've added your card details</p>
                     <button onclick="showForm()">Continue</button>
                 </>
