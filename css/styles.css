@@ -121,7 +121,7 @@ form input:focus {
 form .input-error {
   border-color: hsl(0deg, 100%, 66%);
 }
-form .error {
+form .error-message {
   color: hsl(0deg, 100%, 66%);
 }
 

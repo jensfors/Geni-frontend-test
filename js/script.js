@@ -1,46 +1,61 @@
-function myFunction(e) {
-	document.getElementById('demo').innerHTML = 'Paragraph changed.';
-}
+// Global variables
+const PAYMENT_FORM = document.querySelector('[name="payment-form"]');
+const WRAPPER = document.getElementById('wrapper');
+let ERROR_IN_FORM = false;
 
-const paymentForm = document.querySelector('[name="payment-form"]');
-console.log(paymentForm);
 
-paymentForm.addEventListener('submit', function (e) {
-	// Could add extra validation here, but not sure which value it adds
-	// since final validation should happen on the server
-
-	console.log('submitted the form');
-	console.log(e);
+// All logic that happens when submitting the form
+PAYMENT_FORM.addEventListener('submit', function (e) {
 	e.preventDefault();
-	// validation steps
+	ERROR_IN_FORM = false;
 	const name = e.currentTarget.name.value;
 	const cardNumber = e.currentTarget.cardNumber.value;
 	const expirationMonth = e.currentTarget.expirationMonth.value;
 	const expirationYear = e.currentTarget.expirationYear.value;
 	const cvc = e.currentTarget.cvc.value;
 
-	console.log('name', name);
-	console.log('cardnumber', cardNumber);
-	console.log('expiration month', expirationMonth);
-	console.log('expiration year', expirationYear);
-	console.log('expiration cvc', cvc);
-
-	validateExpirationYear(expirationYear);
+	// Basic form validation
+	// Real validation should happen on the server
 	validateExpirationMonth(expirationMonth);
+	validateExpirationYear(expirationYear);
 	validateCVC(cvc);
-	// showContent();
+
+	// Hide the form and show the confirmed state
+    // if there is no errors
+	if (!ERROR_IN_FORM) showConfirmed();
 });
+
+
+function showConfirmed() {
+	let confirm = document.getElementById('confirm-template');
+	PAYMENT_FORM.remove();
+	confirm.style.display = 'flex';
+}
+
+
+function showForm() {
+	// Hide confirm state
+	let confirm = document.getElementById('confirm-template');
+	confirm.style.display = 'none';
+
+	// Show the form again after confirming
+	WRAPPER?.appendChild(PAYMENT_FORM);
+	PAYMENT_FORM.reset();
+}
+
 
 function validateExpirationMonth(expirationMonth) {
 	let input = document.getElementById('expirationMonth');
 	let error = document.getElementById('expError');
 
 	if (expirationMonth.length < 2) {
+		ERROR_IN_FORM = true;
 		input?.classList.add('input-error');
 		error.innerHTML = 'Has to be 2 numbers';
 
 		return;
 	} else if (expirationMonth < 1 || expirationMonth > 12) {
+		ERROR_IN_FORM = true;
 		input?.classList.add('input-error');
 		error.innerHTML = 'MM has to be between 1 and 12';
 
@@ -51,11 +66,13 @@ function validateExpirationMonth(expirationMonth) {
 	error.innerHTML = '';
 }
 
+
 function validateExpirationYear(expirationYear) {
 	let input = document.getElementById('expirationYear');
 	let error = document.getElementById('expError');
 
 	if (expirationYear.length < 2) {
+		ERROR_IN_FORM = true;
 		input?.classList.add('input-error');
 		error.innerHTML = 'Has to be 2 numbers';
 
@@ -66,11 +83,13 @@ function validateExpirationYear(expirationYear) {
 	error.innerHTML = '';
 }
 
+
 function validateCVC(cvc) {
 	let input = document.getElementById('cvc');
 	let error = document.getElementById('cvcError');
 
 	if (cvc.length < 3) {
+		ERROR_IN_FORM = true;
 		input?.classList.add('input-error');
 		error.innerHTML = 'Has to be 3 numbers';
 
@@ -81,33 +100,12 @@ function validateCVC(cvc) {
 	error.innerHTML = '';
 }
 
-function validateName(name) {
-	if (!name) {
-		console.log('Sorry name cannot be empty');
-	} else if (!name) {
-	}
-}
-
-var wrapper = document.getElementById('wrapper');
-
-function showContent() {
-	let confirm = document.getElementById('confirm-template');
-	paymentForm.remove();
-	confirm.style.display = 'flex';
-}
-
-function showForm() {
-	console.log('showForm daddy');
-	let confirm = document.getElementById('confirm-template');
-	confirm.style.display = 'none';
-	wrapper?.appendChild(paymentForm);
-	paymentForm.reset();
-}
 
 function onlyNumberKey(e) {
 	if (isNaN(e.key)) return false;
 	return true;
 }
+
 
 // This could be made more resilient with checking ASCII character
 // to eliminate the possibility that the user enters characters
