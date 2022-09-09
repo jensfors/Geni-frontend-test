@@ -43,6 +43,7 @@ function showForm() {
 	PAYMENT_FORM.reset();
 }
 
+function validateExpirationDate() {}
 
 function validateExpirationMonth(expirationMonth) {
 	let input = document.getElementById('expirationMonth');
@@ -50,6 +51,7 @@ function validateExpirationMonth(expirationMonth) {
 
 	if (expirationMonth.length < 2) {
 		ERROR_IN_FORM = true;
+		console.log('do we get here???');
 		input?.classList.add('input-error');
 		error.innerHTML = 'Has to be 2 numbers';
 
@@ -57,6 +59,7 @@ function validateExpirationMonth(expirationMonth) {
 	} else if (expirationMonth < 1 || expirationMonth > 12) {
 		ERROR_IN_FORM = true;
 		input?.classList.add('input-error');
+		error.innerHTML = '';
 		error.innerHTML = 'MM has to be between 1 and 12';
 
 		return;
@@ -65,7 +68,6 @@ function validateExpirationMonth(expirationMonth) {
 	input.classList.remove('input-error');
 	error.innerHTML = '';
 }
-
 
 function validateExpirationYear(expirationYear) {
 	let input = document.getElementById('expirationYear');
@@ -80,7 +82,8 @@ function validateExpirationYear(expirationYear) {
 	}
 
 	input.classList.remove('input-error');
-	error.innerHTML = '';
+	// Only remove inner HTML if there is no error in expiration month
+	if (error.textContent.trim() === '') error.innerHTML = '';
 }
 
 

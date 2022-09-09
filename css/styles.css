@@ -123,6 +123,8 @@ form .input-error {
 }
 form .error-message {
   color: hsl(0deg, 100%, 66%);
+  font-size: 0.9rem;
+  padding-top: 8px;
 }
 
 button {
@@ -212,6 +214,9 @@ label {
     padding-left: 6%;
     padding-right: 6%;
     padding-top: 20px;
+  }
+  .form-wrapper #confirm-template {
+    width: 100%;
   }
   .gradient-box {
     flex-grow: 1;

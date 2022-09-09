@@ -55,19 +55,16 @@ form {
 		&::placeholder {
 			color: $violet-dark;
 		}
-		// background: linear-gradient(21deg, #10abff, #1beabd);
-		// border-image-source: linear-gradient(rgba(0, 51, 102, 0.5), rgba(0, 0, 51, 0.5));
 	}
 	input:focus {
+        // Could add the gradient with border image
+        // and mask the image, to get the border.
+        // Border image is just poorly supported
+        // and first came to chrome on Android in 2022.
+        // Could add fallback value?
+        // Have to be carefull when implement own outline
+        // due to accessibility concerns
 		outline-color: hsl(249, 99%, 64%);
-		// border-image-source: linear-gradient(
-		// 	rgba(0, 51, 102, 0.5),
-		// 	rgba(0, 0, 51, 0.5)
-		// );
-		// // border-radius: 0.5rem;
-		// border-width: 3pt;
-		// border-image-slice: 1;
-		// outline: none;
 	}
 
 	.input-error {
@@ -76,6 +73,8 @@ form {
 
 	.error-message {
 		color: $red-error;
+        font-size: 0.9rem;
+        padding-top: 8px;
 	}
 }
 
@@ -179,6 +178,10 @@ label {
 		padding-left: 6%;
 		padding-right: 6%;
 		padding-top: 20px;
+
+        #confirm-template {
+            width: 100%;
+        }
 	}
 
 	.gradient-box {
